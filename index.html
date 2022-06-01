@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Tony Vervoot - Developpeur Web">
+    <meta name="keywords" content="Tony Vervoot, Tony, Vervoot, developpeur, developer, web, javascript, development, xml, php, jQuery, react, node, nodejs, css3, html5, cannes, paca">
+    <meta name="author" content="Tony Vervoot">
+
+    <link rel="icon" href="assets/favicon.ico">
+
+    <link rel="stylesheet" href="styles/index.css">
+
+    <script src="js/switch-theme.js"></script>
+    <script src="js/switch-page.js"></script>
+    <title>Tony Vervoot</title>
+</head>
+<body>
+    <header>
+        <h1><a href="./">Tony Vervoot</a></h1>
+        <a id="switch-theme" class="link max-size" onclick="switchTheme()"><i class="bx bx-sun"></i></a>
+    </header>
+
+    <main>
+        <div class="wrap">
+        <div class="social-bar">
+            <div class="vertical-line"></div>
+            <a href="https://bit.ly/3zbwmQs" target="_blank" rel="noopener">
+                <i class="bx bxl-linkedin-square max-size"></i>
+            </a>
+            <a href="https://bit.ly/3PWYrRu" target="_blank" rel="noopener">
+                <i class="bx bxl-github max-size"></i>
+            </a>
+            <div class="vertical-line"></div>
+        </div>
+            <section>
+                <div class="avatar"></div>
+                <div class="bubbles">
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                    <div class="bubble">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Impedit, possimus nesciunt dolorem ex laborum eos tempora 
+                        ipsum laudantium itaque suscipit officia voluptates vero 
+                        accusamus velit expedita iste, illo voluptatem ipsam!
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Mes Projets</h2>
+                <img src="./assets/Avatar.png" alt="Project 1">
+                <div class="project">
+                    <h3>Title</h3>
+                    <p>Description...</p>
+                </div>
+            </section>
+            <section>
+                <h2>Me Contacter</h2>
+                <p>Vous pouvez m'envoyer un message en remplissant le formulaire ci-dessous.</p>
+                <form action="" method="post">
+                    <label for="Name">Nom</label>
+                    <input id='Name' name='name' type='text' />
+
+                    <label for="Email">Adresse Email</label>
+                    <input id='Email' name='email' type='text' />
+
+                    <label for="Message">Votre Message</label>
+                    <textarea id="Message" name="message" rows="5"></textarea>
+
+                    <input type="button" value="Envoyer mon message.">
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <nav>
+        <ul>
+            <a onclick="SwitchPage(0)">
+                <li class="active"><div class="mark"></div><i class="bx bx-message-alt max-size"></i></li>
+                <span>Messagerie</span>
+            </a>
+            <a onclick="SwitchPage(1)">
+                <li><i class="bx bx-collection max-size"></i></li>
+                <span>Projets</span>
+            </a>
+            <a onclick="SwitchPage(2)">
+                <li><i class="bx bx-envelope max-size"></i></li>
+                <span>Contact</span>
+            </a>
+            <a href="./assets/moncv.pdf">
+                <li><i class="bx bxs-download max-size"></i></li>
+                <span>Mon C.V</span>
+            </a>
+        </ul>
+    </nav>
+</body>
+</html>

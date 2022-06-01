@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
+@import url('./main.css');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* DARK THEME */
+    --dark-bg-color: #15202B;
+    --dark-text-color: #EEEEEE;
+    --dark-primary-color: #5DAFF5;
+    /* LIGHT THEME */
+    --light-bg-color: #EEEEEE;
+    --light-text-color: #2E2E2E;
+    --light-primary-color: #B10000;
+}
+
+.max-size {
+    font-size: 1.5em;
+}
+.link {
+    cursor: pointer;
+}
+
+/* DEFAULT THEME (DARK) */
+body {
+    background-color: var(--dark-bg-color);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text-color);
+    transition: all 1s ease-in-out;
+}
+body a {
+    color: var(--dark-primary-color);
+    text-decoration: none;
+}
+body a:hover {
+    color: var(--dark-text-color);
+}
+
+
+h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+h1, h2 {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+p {
+    font-size: 0.9em;
+    padding-inline-start: 5px;
+    padding-inline-end: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    position: relative;
+    top: 15px;
+    left: 10px;
+    width: fit-content;
+    font-size: 0.9em;
+    background-color: var(--dark-bg-color);
+    z-index: 10;
+}
+
+input, input:focus, textarea {
+    margin: 5px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 0.2em;
+    resize: vertical;
+    color: var(--dark-text-color);
+    font-family: 'Quicksand', sans-serif;
+}
+
+input[type="button"] {
+    background-color: var(--dark-primary-color);
+    color: var(--light-text-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    padding-inline-start: 25px;
+    padding-inline-end: 25px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding-inline-start: 0;
+    height: 10vh;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    padding-inline-start: 0;
+    width: 100%;
+    max-width: 370px;
+    height: 50px;
+}
+
+nav ul > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul > a span {
+    font-size: xx-small;
+    text-transform: uppercase;
+    padding-top: 5px;
+}
+
+nav ul > a li {
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+nav ul > a li.active {
+    border-bottom: 2px solid;
+    color: var(--dark-text-color);
+}
+
+nav ul > a li .mark {
+    display: none;
+    position: absolute;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--light-primary-color);
+    border-radius: 1em;
+}
+
+
+/* LIGHT THEME */
+body.light {
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+}
+
+body.light a {
+    color: var(--light-primary-color);
+}
+body.light a:hover {
+    color: var(--light-text-color);
+}
+
+
+body.light nav ul > a li.active {
+    border-bottom: 2px solid;
+    color: var(--light-text-color);
+}
+
+
+body.light label {
+    background-color: var(--light-bg-color);
+}
+
+body.light input,
+body.light input:focus,
+body.light textarea {
+    color: var(--light-text-color);
+}
+
+body.light input[type="button"] {
+    background-color: var(--light-primary-color);
+    color: var(--dark-text-color);
+}

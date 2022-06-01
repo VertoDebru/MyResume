@@ -1,0 +1,113 @@
+main {
+    display: flex;
+    height: 80vh;
+    overflow: hidden;
+}
+
+main .wrap {
+    display: inline-flex;
+    position: relative;
+    margin: 0 auto;
+    min-width: 220px;
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+main .wrap .social-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 30px;
+    height: 150px;
+}
+
+main .wrap .social-bar .vertical-line {
+    width: 3px;
+    height: 25%;
+    background-color: var(--dark-primary-color);
+    border-radius: 0.5em;
+}
+
+.wrap section {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    max-width: 450px;
+    padding: 5px;
+    overflow: hidden auto;
+}
+
+.wrap section:nth-of-type(1) {
+    flex-direction: row;
+}
+
+.wrap section .avatar {
+    min-width: 100px;
+    min-height: 100%;
+    background-image: url('../assets/Avatar.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+.wrap section .bubbles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden auto;
+}
+
+.wrap section .bubbles .bubble {
+    margin: 5px;
+    padding: 5px;
+    flex-shrink: 0;
+    border-radius: 0.5em;
+    background-color: var(--dark-primary-color);
+    font-size: 0.9em;
+    color: #1E1E1E;
+}
+
+.wrap section .project {
+    margin: 5px;
+    height: 100px;
+    background-color: var(--light-text-color);
+    border-radius: 0.5em;
+}
+
+/* ScrollBar - Chrome / Edge */
+.bubbles::-webkit-scrollbar,
+section::-webkit-scrollbar {
+    max-width: 5px;
+    max-height: 90%;
+    background-color: rgba(0,0,0,.15);
+    border-radius: 0.2em;
+}
+.bubbles::-webkit-scrollbar-thumb,
+section::-webkit-scrollbar-thumb {
+    background: var(--dark-primary-color);
+    border-radius: 0.2em;
+}
+/* ************************* */
+
+/* For Light Version */
+body.light main .social-bar .vertical-line {
+    background-color: var(--light-primary-color);
+}
+
+body.light .wrap section .bubbles .bubble {
+    background-color: #FFEBEB;
+    box-shadow: 2px 2px 5px -4px var(--light-primary-color);
+    color: #1E1E1E;
+}
+/* ScrollBar Light Version - Chrome / Edge */
+body.light .wrap section .bubbles::-webkit-scrollbar-thumb,
+body.light .wrap section::-webkit-scrollbar-thumb {
+    background: var(--light-primary-color);
+    border-radius: 0.2em;
+}
