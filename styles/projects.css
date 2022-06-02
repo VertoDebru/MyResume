@@ -1,0 +1,31 @@
+.wrap section .project {
+    margin: 5px;
+    padding: 10px;
+    background-color: var(--light-text-color);
+    border-radius: 0.5em;
+}
+
+.wrap section .project img {
+    width: 100%;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    object-fit: contain;
+}
+
+.wrap section .project p {
+    display: none;
+}
+
+.wrap section .project img:hover + p {
+    display: block;
+}
+
+.wrap section .project .foot {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* For Light Version */
+body.light .wrap section .project {
+    background-color: #FFFFFF;
+}

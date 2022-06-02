@@ -1,3 +1,5 @@
+@import url("./projects.css");
+
 main {
     display: flex;
     height: 80vh;
@@ -73,11 +75,25 @@ main .wrap .social-bar .vertical-line {
     color: #1E1E1E;
 }
 
-.wrap section .project {
-    margin: 5px;
-    height: 100px;
-    background-color: var(--light-text-color);
-    border-radius: 0.5em;
+.wrap section .bubbles .bubble ul > li {
+    display: flex;
+    align-items: center;
+}
+
+.wrap section .bubbles .bubble ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    width: 80%;
+    min-height: 80px;
+    align-items: center;
+}
+
+.wrap section .bubbles > :first-child {
+    margin-top: auto !important;
 }
 
 /* ScrollBar - Chrome / Edge */

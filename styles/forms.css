@@ -1,0 +1,61 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    position: relative;
+    top: 15px;
+    left: 10px;
+    width: fit-content;
+    font-size: 0.9em;
+    background-color: var(--dark-bg-color);
+    z-index: 10;
+}
+
+input, input:focus, textarea, button {
+    margin: 5px;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 0.2em;
+    resize: vertical;
+    color: var(--dark-text-color);
+    font-family: 'Quicksand', sans-serif;
+}
+
+input[type="button"],
+button {
+    background-color: var(--dark-primary-color);
+    color: var(--light-text-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type="button"]:hover,
+button:hover {
+    color: var(--dark-text-color);
+}
+
+/* For Light Version */
+body.light label {
+    background-color: var(--light-bg-color);
+}
+
+body.light input,
+body.light input:focus,
+body.light textarea {
+    color: var(--light-text-color);
+}
+
+body.light input[type="button"],
+body.light button {
+    background-color: var(--light-primary-color);
+    color: var(--dark-text-color);
+}
+
+body.light input[type="button"]:hover,
+body.light button:hover {
+    color: var(--light-text-color);
+}
