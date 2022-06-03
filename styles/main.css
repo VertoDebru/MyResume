@@ -49,6 +49,10 @@ main .wrap .social-bar .vertical-line {
     flex-direction: row;
 }
 
+.wrap section:nth-of-type(1) h2 {
+    display: none;
+}
+
 .wrap section .avatar {
     min-width: 100px;
     min-height: 100%;
