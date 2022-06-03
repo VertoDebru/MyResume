@@ -40,6 +40,25 @@
     justify-content: space-around;
 }
 
+.wrap section .project .foot a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 0.2em;
+    background-color: var(--dark-primary-color);
+    color: var(--light-text-color);
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.wrap section .project .foot a:hover {
+    color: var(--dark-text-color);
+}
+
 /* For Light Version */
 body.light .wrap section .project {
     background-color: #FFFFFF;
