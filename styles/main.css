@@ -1,3 +1,4 @@
+@import url("./bubbles.css");
 @import url("./projects.css");
 
 main {
@@ -72,6 +73,7 @@ main .wrap .social-bar .vertical-line {
     border-radius: 0.5em;
     background-color: var(--dark-primary-color);
     font-size: 0.9em;
+    font-weight: 500;
     color: #1E1E1E;
 }
 
