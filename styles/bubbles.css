@@ -1,3 +1,43 @@
+.wrap section .bubbles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden auto;
+}
+
+.wrap section .bubbles > :first-child {
+    margin-top: auto !important;
+}
+
+.wrap section .bubbles .bubble {
+    margin: 5px;
+    padding: 5px;
+    flex-shrink: 0;
+    border-radius: 0.5em;
+    background-color: var(--dark-primary-color);
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #1E1E1E;
+}
+
+.wrap section .bubbles .bubble ul > li {
+    display: flex;
+    align-items: center;
+}
+
+.wrap section .bubbles .bubble ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    width: 80%;
+    min-height: 80px;
+    align-items: center;
+}
+
 .bubble span {
     display: flex;
     justify-content: flex-start;
@@ -48,4 +88,29 @@
         transform: scale(1);
         opacity: 1;
     }
+}
+
+/* ScrollBar - Chrome / Edge */
+.bubbles::-webkit-scrollbar {
+    max-width: 5px;
+    max-height: 90%;
+    background-color: rgba(0,0,0,.15);
+    border-radius: 0.2em;
+}
+.bubbles::-webkit-scrollbar-thumb {
+    background: var(--dark-primary-color);
+    border-radius: 0.2em;
+}
+/* ************************* */
+
+/* For Light Version */
+body.light .wrap section .bubbles .bubble {
+    background-color: #FFEBEB;
+    box-shadow: 2px 2px 5px -4px var(--light-primary-color);
+    color: #1E1E1E;
+}
+/* ScrollBar Light Version - Chrome / Edge */
+body.light .wrap section .bubbles::-webkit-scrollbar-thumb {
+    background: var(--light-primary-color);
+    border-radius: 0.2em;
 }
