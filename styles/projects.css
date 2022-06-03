@@ -16,6 +16,21 @@
     display: none;
 }
 
+.wrap section .project span {
+    display: block;
+    margin-top: -10px;
+    font-size: xx-small;
+    text-transform: uppercase;
+    text-align: right;
+
+    animation: up-and-down 1.5s infinite;
+}
+@keyframes up-and-down {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
 .wrap section .project img:hover + p {
     display: block;
 }
@@ -28,4 +43,8 @@
 /* For Light Version */
 body.light .wrap section .project {
     background-color: #FFFFFF;
+}
+
+body.light .wrap section .project span {
+    font-weight: 700;
 }
