@@ -1,22 +1,26 @@
-.wrap section .project {
+.wrap section .projects {
+    overflow: hidden auto;
+}
+
+.wrap section .projects .project {
     margin: 5px;
     padding: 10px;
     background-color: var(--light-text-color);
     border-radius: 0.5em;
 }
 
-.wrap section .project img {
+.wrap section .projects .project img {
     width: 100%;
     padding-block-start: 10px;
     padding-block-end: 10px;
     object-fit: contain;
 }
 
-.wrap section .project p {
+.wrap section .projects .project p {
     display: none;
 }
 
-.wrap section .project span {
+.wrap section .projects .project span {
     display: block;
     margin-top: -10px;
     font-size: xx-small;
@@ -31,16 +35,16 @@
     100% { opacity: 1; }
 }
 
-.wrap section .project img:hover + p {
+.wrap section .projects .project img:hover + p {
     display: block;
 }
 
-.wrap section .project .foot {
+.wrap section .projects .project .foot {
     display: flex;
     justify-content: space-around;
 }
 
-.wrap section .project .foot a {
+.wrap section .projects .project .foot a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,15 +59,34 @@
     text-transform: uppercase;
 }
 
-.wrap section .project .foot a:hover {
+.wrap section .projects .project .foot a:hover {
     color: var(--dark-text-color);
 }
 
+/* ScrollBar - Chrome / Edge */
+section .projects::-webkit-scrollbar {
+    max-width: 5px;
+    max-height: 90%;
+    background-color: rgba(0,0,0,.15);
+    border-radius: 0.2em;
+}
+section .projects::-webkit-scrollbar-thumb {
+    background: var(--dark-primary-color);
+    border-radius: 0.2em;
+}
+/* ************************* */
+
 /* For Light Version */
-body.light .wrap section .project {
+body.light .wrap section .projects .project {
     background-color: #FFFFFF;
 }
 
-body.light .wrap section .project span {
+body.light .wrap section .projects .project span {
     font-weight: 700;
+}
+
+/* ScrollBar Light Version - Chrome / Edge */
+body.light .wrap section .projects::-webkit-scrollbar-thumb {
+    background: var(--light-primary-color);
+    border-radius: 0.2em;
 }

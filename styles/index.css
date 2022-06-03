@@ -93,31 +93,27 @@ nav ul {
     height: 50px;
 }
 
-nav ul > a {
+nav ul > li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 2px solid transparent;
+    color: var(--dark-primary-color);
+    cursor: pointer;
 }
 
-nav ul > a span {
+nav ul > li.active {
+    border-bottom: 2px solid;
+    color: var(--dark-text-color);
+}
+
+nav ul li > span {
     font-size: xx-small;
     text-transform: uppercase;
     padding-top: 5px;
 }
 
-nav ul > a li {
-    position: relative;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-}
-
-nav ul > a li.active {
-    border-bottom: 2px solid;
-    color: var(--dark-text-color);
-}
-
-nav ul > a li .mark {
+nav ul > li .mark {
     display: none;
     position: absolute;
     left: 15px;
@@ -141,8 +137,11 @@ body.light a:hover {
     color: var(--light-text-color);
 }
 
+body.light nav ul > li {
+    color: var(--light-primary-color);
+}
 
-body.light nav ul > a li.active {
+body.light nav ul > li.active {
     border-bottom: 2px solid;
     color: var(--light-text-color);
 }

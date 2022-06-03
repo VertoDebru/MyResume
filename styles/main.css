@@ -39,10 +39,9 @@ main .wrap .social-bar .vertical-line {
 .wrap section {
     display: flex;
     flex-direction: column;
-    min-width: 99.9%;
+    min-width: fit-content;
     max-width: 450px;
     padding: 5px;
-    overflow: hidden auto;
 }
 
 .wrap section:nth-of-type(1) {
