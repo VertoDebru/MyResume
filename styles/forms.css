@@ -26,6 +26,8 @@ input, input:focus, textarea, button {
 
 input[type="button"],
 button {
+    display: flex;
+    align-items: center;
     background-color: var(--dark-primary-color);
     color: var(--light-text-color);
     font-weight: 500;
