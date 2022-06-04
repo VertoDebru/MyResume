@@ -81,6 +81,15 @@ body.light .wrap section .projects .project {
     background-color: #FFFFFF;
 }
 
+body.light .wrap section .projects .project .foot a {
+    background-color: var(--light-primary-color);
+    color: var(--dark-text-color);
+}
+
+body.light .wrap section .projects .project .foot a:hover {
+    color: var(--light-text-color);
+}
+
 body.light .wrap section .projects .project span {
     font-weight: 700;
 }
