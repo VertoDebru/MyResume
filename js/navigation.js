@@ -34,3 +34,70 @@ function switchTheme() {
         bodyTag.classList.add('light');
     }
 }
+
+// BUG !!!
+function postForm()
+{
+    const Content = document.getElementsByTagName("form")[0];
+    let name = document.getElementById("Name").value;
+    let email = document.getElementById("Email").value;
+    let message = document.getElementById("Message").value;
+
+    const reqFile = new Request('https://vervoot.alwaysdata.net/scripts/post.php');
+    const data = { name: name, email: email, message: message };
+    const options = {
+        mode: 'no-cors',
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept': 'application/json','Referer': 'https://vervoot.alwaysdata.net/', 'Access-Control-Allow-Origin': 'http://127.0.0.1:5500/'},
+        body: JSON.stringify(data)
+    };
+
+    fetch(reqFile, options).then(response => response.json())
+    .then((res) => {
+        console.log(res);
+        // Create Div content message sended
+        const validDiv = document.createElement("div");
+        if(res.ok) {
+            this.setState({ success: true });
+            validDiv.id = "ValidForm";
+            validDiv.innerHTML = "<h2>Success !</h2>";
+            Content.insertBefore(validDiv, Content.firstChild);
+        }
+        else {
+            this.setState({ success: false });
+            validDiv.id = "ErrorForm";
+            validDiv.innerHTML = `<h2>Error !</h2>`;
+            Content.insertBefore(validDiv, Content.firstChild);
+        }
+    })
+    .catch((err) => {
+        console.log(err);
+        this.setState({ success: false });
+        validDiv.id = "ErrorForm";
+        validDiv.innerHTML = `<h2>Error !</h2><p>${err}</p>`;
+        Content.insertBefore(validDiv, Content.firstChild);
+    });
+
+    /*
+    $.ajax({
+        type : "POST",
+        url  : "./js/post.php",
+        data : data,
+        success: function(res)
+        {
+            // Create Div content message sended
+            const validDiv = document.createElement("div");
+            if (res == 'success'){
+                validDiv.id = "ValidForm";
+                validDiv.innerHTML = "<h2>Success !</h2>";
+                Content.insertBefore(validDiv, Content.firstChild);
+            } else {
+                if(document.getElementById("ErrorForm")) document.getElementById("ErrorForm").remove();
+                validDiv.id = "ErrorForm";
+                validDiv.innerHTML = "<h2>Error !</h2>";
+                Content.insertBefore(validDiv, Content.firstChild);
+            }
+        }
+    });
+    */
+}

@@ -46,6 +46,7 @@ main .wrap .social-bar .vertical-line {
 
 .wrap section:nth-of-type(1) {
     flex-direction: row;
+    min-width: 100%;
 }
 
 .wrap section:nth-of-type(1) h2 {
