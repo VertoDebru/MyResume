@@ -1,0 +1,69 @@
+{
+    "T" : [
+        {
+            "dial": "{W1}Bonjour, je m'appelle Tony Vervoot, je suis développeur web junior basé à Cannes, France.{T1}"
+        },
+        {
+            "dial": "{W5}Passionné par le développement Web depuis la fin des années 90, j'ai développé mes compétences en HTML, CSS, PHP en autodidacte.{T2}"
+        },
+        {
+            "dial": "{W10}Plusieurs années plus tard, j'ai décidé de suivre une formation de Développeur Web afin de mettre à jour mes compétences et poursuivre ma carrière dans ce domaine.{T3}"
+        },
+        {
+            "dial": "{W5}Au bout de cette formation j'ai obtenu mon diplôme de Developpeur web chez Openclassrooms.<br>Cette formation ma permis de mettre à jour mes compétences dans le domaine.{T4}"
+        },
+        {
+            "dial": "{W6}Voici les compétences que j'ai pu développer pendant cette formation.{T5}"
+        },
+        {
+            "dial": "{W5}<ul><li><i class='bx bxl-html5 max-size'></i>HTML5</li><li><i class='bx bxl-css3 max-size'></i>CSS3</li><li><i class='bx bxl-javascript max-size'></i>Javascript</li><li><i class='bx bxl-nodejs max-size'></i>NodeJs</li><li><i class='bx bxl-react max-size'></i>React</li><li><i class='bx bxl-mongodb max-size'></i>MongoDB</li><li><i class='bx bxl-git max-size'></i>Git</li><li><i class='bx bxl-express max-size'></i>Express.js</li><li><i class='bx bxl-sequelize max-size'></i>Sequelize</li></ul>{T6}"
+        },
+        {
+            "dial": "{W5}Je vous laisse naviguer pour découvrir mes projets en cliquant sur {IPROJECT}{T7}"
+        },
+        {
+            "dial": "{W5}Ou si vous le souhaitez vous pouvez toujours m'envoyer un message en cliquant sur {ICONTACT}"
+        }
+    ],
+    "P" : [
+        {
+            "project": "{W0}<h2>Astro</h2>Projet personnel sur le thème de l'astrologie chinoise et occidentale.<br>Base de données en XML, traité avec Javascript et jQuery.<br>Langages utilisés : <br>{HTML}{JS}{JQUERY}{XML}{VISIT}"
+        },
+        {
+            "project": "{W0}<h2>Simple Test</h2>Projet personnel d'un test de personnalité.<br>Langages utilisés : <br>{HTML}{JS}{JQUERY}{XML}{VISIT}"
+        }
+    ],
+    "O" : [
+        {
+            "other": "{W2}<h1>Contact</h1>Vous pouvez m'envoyer un message en remplissant le formulaire ci-dessous.{CONTACT}Ou simplement me retrouver sur les réseaux sociaux.{SOCIAL}"
+        }
+    ],
+    "Words" : [
+        {
+            "Send": "Envoyer",
+            "Sent": "Message envoyé.",
+            "Error": "Erreur !",
+            "Write": "Tony est entrain de vous écrire."
+        }
+    ],
+    "Word" : [
+        {
+            "0": [
+                "Send",
+                "Envoyer"
+            ],
+            "1": [
+                "Sent",
+                "Message envoyé."
+            ],
+            "2": [
+                "Error",
+                "Erreur !"
+            ],
+            "3": [
+                "Write",
+                "Tony est entrain de vous écrire."
+            ]
+        }
+    ]
+}
