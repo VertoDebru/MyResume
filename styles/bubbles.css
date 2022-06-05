@@ -11,6 +11,7 @@
 }
 
 .wrap section .bubbles .bubble {
+    display: flex;
     margin: 5px;
     padding: 5px;
     flex-shrink: 0;
@@ -48,6 +49,7 @@
     justify-content: flex-start;
     width: auto;
     margin: 0;
+    margin-inline-end: 5px;
     min-height: auto;
 }
 
