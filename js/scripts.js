@@ -28,7 +28,6 @@ const msgBip = new Audio('./assets/medias/notification.mp3');
 msgBip.crossOrigin = "anonymous";
 
 let cPage = 0;                                  // Defined the current page.
-let newMessage = 0;
 
 // === CLASS TO LOAD DATAS.
 class Initialize {
@@ -148,7 +147,6 @@ class Bubble {
                 if(cPage != 0)
                 {
                     document.getElementsByClassName('mark')[0].setAttribute('style', 'display: block');
-                    newMessage+1;
                     msgBip.play();
                 }
                 new Dialogs(this.dial).Send();
