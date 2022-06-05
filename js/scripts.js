@@ -20,6 +20,7 @@ const Words = [];
 const Others = [];
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
+msgBip.crossOrigin = "anonymous";
 
 // === CLASS TO LOAD DATAS.
 class Initialize {
