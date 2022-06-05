@@ -1,4 +1,4 @@
-let cPage = 0;                                  // Defined the current page.
+
 
 // Navigation
 function switchPage(Id)
@@ -14,6 +14,7 @@ function switchPage(Id)
     let scrollX = Id * widthWrap;
 
     cPage = Id;
+    if(cPage == 0) document.getElementsByClassName('mark')[0].setAttribute('style', '');
     wrap.scrollTo({
         left: scrollX,
         behavior: 'smooth'

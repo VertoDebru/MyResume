@@ -19,10 +19,10 @@
             "dial": "{W5}<ul><li><i class='bx bxl-html5 max-size'></i>HTML5</li><li><i class='bx bxl-css3 max-size'></i>CSS3</li><li><i class='bx bxl-javascript max-size'></i>Javascript</li><li><i class='bx bxl-nodejs max-size'></i>NodeJs</li><li><i class='bx bxl-react max-size'></i>React</li><li><i class='bx bxl-mongodb max-size'></i>MongoDB</li><li><i class='bx bxl-git max-size'></i>Git</li><li><i class='bx bxl-express max-size'></i>Express.js</li><li><i class='bx bxl-sequelize max-size'></i>Sequelize</li></ul>{T6}"
         },
         {
-            "dial": "{W5}Je vous laisse naviguer pour découvrir mes projets en cliquant sur {IPROJECT}{T7}"
+            "dial": "{W5}Je vous laisse naviguer pour découvrir mes projets en cliquant sur <i class='bx bx-collection'></i>{T7}"
         },
         {
-            "dial": "{W5}Ou si vous le souhaitez vous pouvez toujours m'envoyer un message en cliquant sur {ICONTACT}"
+            "dial": "{W5}Ou si vous le souhaitez vous pouvez toujours m'envoyer un message en cliquant sur <i class='bx bx-envelope'></i>"
         }
     ],
     "P" : [

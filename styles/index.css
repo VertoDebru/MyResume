@@ -97,6 +97,7 @@ nav ul > li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     border-bottom: 2px solid transparent;
     color: var(--dark-primary-color);
     cursor: pointer;
@@ -121,6 +122,19 @@ nav ul > li .mark {
     height: 10px;
     background-color: var(--light-primary-color);
     border-radius: 1em;
+    
+    animation: moveMark 1.5s infinite;
+}
+@keyframes moveMark {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: -5px;
+    }
+    100% {
+        top: -1px;
+    }
 }
 
 

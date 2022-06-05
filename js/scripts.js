@@ -13,6 +13,11 @@
  *  Author : Tony Vervoot - Create : 05/27/2021
  *  Update : 06/05/2021
  * ************************************************************ */
+// RegExp
+const reg = RegExp("(\{(.*?)\})","g");
+const regSimplify = RegExp(/[{}]/g);
+const regPre = RegExp(/[A-Z]{1}/g);
+const regId = RegExp(/[0-9]{1,2}/g);
 // Dialogs, Projects, Words, Others datas
 const Dials = [];
 const Projects = [];
@@ -21,6 +26,9 @@ const Others = [];
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
 msgBip.crossOrigin = "anonymous";
+
+let cPage = 0;                                  // Defined the current page.
+let newMessage = 0;
 
 // === CLASS TO LOAD DATAS.
 class Initialize {
@@ -46,7 +54,7 @@ class Initialize {
             others.forEach(other => Others.push(other.other));
 
             // Start chat.
-            new Bubble().Add(true);
+            new Dialogs(0).Send();
         })
         .catch( (err) => console.log(err) );
     }
@@ -54,7 +62,51 @@ class Initialize {
 
 // === CLASS TO HANDLE DIALOGS.
 class Dialogs {
+    constructor(dial) {
+        this.current = dial;
+    }
 
+    // Send current dialog in bubbles.
+    Send() {
+        const currentDial = this.Format(Dials[this.current]);
+        const interval = this.GetInterval();
+        console.log(`Dialog : ${this.current} / Interval : ${interval}`);
+        new Bubble(this.current,interval).Add(currentDial);
+    }
+
+    // Remove all {Tags} in text and return it.
+    Format(text) {
+        if(text == null || text == "undefined")
+            return console.warn("Dialogs Format -> Error no text received !");
+        
+        let formated = text.replace(reg, "");
+        return formated;
+    }
+    
+    // Get Interval in dialog.
+    GetInterval() {
+        const interval = parseInt(this.FirstTag().match(regId)[0]);
+        return interval;
+    }
+    
+    // Get the first tag in text and return it without {}.
+    FirstTag()
+    {
+        const fTag = this.GetTag(Dials[this.current], 0).replace(regSimplify, "");
+        return fTag;
+    }
+
+    // Get Tag by position in text.
+    GetTag(text, position)
+    {
+        if(text == null || text == "undefined")
+            return console.log("Tag.Get -> Error no text received !");
+        if(position == null)
+            return console.log("Tag.Get -> Error no position received !");
+        
+        let tag = text.match(reg)[position];
+        return tag;
+    }
 }
 
 /* === CLASS TO HANDLE BUBBLES.
@@ -63,25 +115,52 @@ class Dialogs {
  *  FALSE : if you send message.
  * === */
 class Bubble {
-    constructor() {
+    constructor(dial, interval) {
         this.Bubbles = document.getElementsByClassName("bubbles")[0];
         this.layoutWrite = `<ul class="write">
             <li class="write-point"></li>
             <li class="write-point"></li>
             <li class="write-point"></li>
         </ul>${Words[0].Write}`;
+        this.dial = dial;
+        this.interval = interval;
     }
 
-    // Add bubble in chatting box.
-    Add(isWrite) {
+    // Add bubble in chatting box whit text/not.
+    Add(text) {
+        const writeBubble = document.getElementById('Write');
         const myBubble = document.createElement("div");
         myBubble.classList.add('bubble');
+        myBubble.innerHTML = `<div>${text}</div>`;
 
-        if(isWrite) myBubble.innerHTML = this.layoutWrite;
-        else myBubble.innerHTML = 'TEST';
+        let send = setInterval(() => {
+            if(writeBubble) writeBubble.remove();
+            this.Bubbles.appendChild(myBubble);
 
-        console.log("Add Bubble");
-        this.Bubbles.appendChild(myBubble);
+            this.dial = this.dial+1;
+            if(this.dial !== Dials.length) {
+                let newWrite = document.createElement("div");
+                newWrite.classList.add('bubble');
+                newWrite.innerHTML = this.layoutWrite;
+                newWrite.id = 'Write';
+                this.Bubbles.appendChild(newWrite);
+                // Adding new message if user is not on chatting box.
+                if(cPage != 0)
+                {
+                    document.getElementsByClassName('mark')[0].setAttribute('style', 'display: block');
+                    newMessage+1;
+                    msgBip.play();
+                }
+                new Dialogs(this.dial).Send();
+            }
+
+            this.Bubbles.scrollTo({
+                top:  this.Bubbles.scrollHeight,
+                left: 0,
+                behavior: 'smooth'
+            });
+            clearInterval(send);
+        }, this.interval*1000);
     }
 }
 
