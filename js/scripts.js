@@ -52,6 +52,11 @@ class Initialize {
     }
 }
 
+// === CLASS TO HANDLE DIALOGS.
+class Dialogs {
+
+}
+
 /* === CLASS TO HANDLE BUBBLES.
  * Add(true/false) = For add bubble in chatting box.
  *  TRUE  : if you need add writing text.
