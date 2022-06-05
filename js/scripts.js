@@ -21,6 +21,7 @@ const Others = [];
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
 
+// === CLASS TO LOAD DATAS.
 class Initialize {
     Start() {
         const reqFile = new Request('./assets/datas/FR.json');
@@ -30,24 +31,51 @@ class Initialize {
             // Set dialogs in array.
             let dialogs = data.T;
             dialogs.forEach(dialog => Dials.push(dialog.dial));
-            console.log(Dials);
 
             // Set text projects in array.
             let projects = data.P;
             projects.forEach(project => Projects.push(project.project));
-            console.log(Projects);
 
             // Set words in array.
             let words = data.Words;
             words.forEach(word => Words.push(word));
-            console.log(Words);
 
             // Set text others in array.
             let others = data.O;
             others.forEach(other => Others.push(other.other));
-            console.log(Others);
+
+            // Start chat.
+            new Bubble().Add(true);
         })
         .catch( (err) => console.log(err) );
+    }
+}
+
+/* === CLASS TO HANDLE BUBBLES.
+ * Add(true/false) = For add bubble in chatting box.
+ *  TRUE  : if you need add writing text.
+ *  FALSE : if you send message.
+ * === */
+class Bubble {
+    constructor() {
+        this.Bubbles = document.getElementsByClassName("bubbles")[0];
+        this.layoutWrite = `<ul class="write">
+            <li class="write-point"></li>
+            <li class="write-point"></li>
+            <li class="write-point"></li>
+        </ul>${Words[0].Write}`;
+    }
+
+    // Add bubble in chatting box.
+    Add(isWrite) {
+        const myBubble = document.createElement("div");
+        myBubble.classList.add('bubble');
+
+        if(isWrite) myBubble.innerHTML = this.layoutWrite;
+        else myBubble.innerHTML = 'TEST';
+
+        console.log("Add Bubble");
+        this.Bubbles.appendChild(myBubble);
     }
 }
 
