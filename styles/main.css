@@ -40,13 +40,13 @@ main .wrap .social-bar .vertical-line {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
+    min-width: 100%;
     max-width: 450px;
     padding: 5px;
 }
 
 .wrap section:nth-of-type(1) {
     flex-direction: row;
-    min-width: 100%;
 }
 
 .wrap section:nth-of-type(1) h2 {
