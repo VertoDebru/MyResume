@@ -27,10 +27,44 @@
     ],
     "P" : [
         {
-            "project": "{W0}<h2>Astro</h2>Projet personnel sur le thème de l'astrologie chinoise et occidentale.<br>Base de données en XML, traité avec Javascript et jQuery.<br>Langages utilisés : <br>{HTML}{JS}{JQUERY}{XML}{VISIT}"
+            "name": "Groupomania",
+            "description": "Créez un réseau social d’entreprise.",
+            "techs": ["REACT","NODEJS","EXPRESS","JS"],
+            "image": "./assets/images/groupomania-preview.jpg",
+            "demo": null,
+            "github": "https://github.com/VertoDebru/P7_Groupomania"
         },
         {
-            "project": "{W0}<h2>Simple Test</h2>Projet personnel d'un test de personnalité.<br>Langages utilisés : <br>{HTML}{JS}{JQUERY}{XML}{VISIT}"
+            "name": "Piiquante",
+            "description": "Construisez une API sécurisée pour une application d'avis gastronomiques.",
+            "techs": ["NODEJS","EXPRESS","JWT","JS"],
+            "image": "./assets/images/piiquante-preview.jpg",
+            "demo": null,
+            "github": "https://github.com/VertoDebru/Piiquante/tree/Dev"
+        },
+        {
+            "name": "Kanap",
+            "description": "Construisez un site e-commerce en JavaScript.",
+            "techs": ["JS"],
+            "image": "./assets/images/kanap-preview.jpg",
+            "demo": null,
+            "github": "https://github.com/VertoDebru/Kanap"
+        },
+        {
+            "name": "La Chouette Agence",
+            "description": "Optimisez un site web existant.",
+            "techs": ["HTML","CSS","SEO"],
+            "image": "./assets/images/la-chouette-agence-preview.jpg",
+            "demo": "https://vertodebru.github.io/La-chouette-agence/",
+            "github": "https://github.com/VertoDebru/La-chouette-agence"
+        },
+        {
+            "name": "OhMyFood!",
+            "description": "Dynamisez une page web avec des animations CSS.",
+            "techs": ["HTML","CSS"],
+            "image": "./assets/images/ohmyfood-preview.jpg",
+            "demo": "https://vertodebru.github.io/OhMyFood/",
+            "github": "https://github.com/VertoDebru/OhMyFood"
         }
     ],
     "O" : [
@@ -43,7 +77,10 @@
             "Send": "Envoyer",
             "Sent": "Message envoyé.",
             "Error": "Erreur !",
-            "Write": "Tony est entrain de vous écrire."
+            "Write": "Tony est entrain de vous écrire.",
+            "More": "^ Cliquer sur l'image pour plus d'informations.",
+            "Demo": "Voir la démo",
+            "Project": "Voir le projet"
         }
     ],
     "Word" : [

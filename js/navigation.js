@@ -1,4 +1,7 @@
-
+// Send infos project in chat box.
+function getProject(id) {
+    console.log('Project ID : '+id);
+}
 
 // Navigation
 function switchPage(Id)
@@ -36,7 +39,7 @@ function switchTheme() {
     }
 }
 
-// BUG !!!
+// Post message. !!! BUG !!!
 function postForm()
 {
     const Content = document.getElementsByTagName("form")[0];
