@@ -10,8 +10,8 @@
  *  You can adding more Tags between First an Last Tag.
  *  See more Tags in class 'Tag'.
  *  ===========================================================
- *  Author : Tony Vervoot - Create : 05/27/2021
- *  Update : 06/05/2021
+ *  Author : Tony Vervoot - Create : 06/01/2022
+ *  Update : 06/06/2022
  * ************************************************************ */
 // RegExp
 const reg = RegExp("(\{(.*?)\})","g");
@@ -23,14 +23,18 @@ const Dials = [];
 const Projects = [];
 const Words = [];
 const Others = [];
+// Navigation
+let cPage = 0;                                  // Current page.
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
 msgBip.crossOrigin = "anonymous";
 
-let cPage = 0;                                  // Defined the current page.
-
 // === CLASS TO LOAD DATAS.
 class Initialize {
+    constructor() {
+        this.Projects = document.getElementsByClassName("projects")[0];
+    }
+
     Start() {
         const reqFile = new Request('./assets/datas/FR.json');
         // Get JSON datas
@@ -42,7 +46,7 @@ class Initialize {
 
             // Set text projects in array.
             let projects = data.P;
-            projects.forEach(project => Projects.push(project.project));
+            projects.forEach(project => Projects.push(project));
 
             // Set words in array.
             let words = data.Words;
@@ -51,11 +55,33 @@ class Initialize {
             // Set text others in array.
             let others = data.O;
             others.forEach(other => Others.push(other.other));
+            
+            // Setting up projects.
+            this.Set();
 
             // Start chat.
             new Dialogs(0).Send();
         })
         .catch( (err) => console.log(err) );
+    }
+
+    // Setting up projects.
+    Set() {
+        Projects.forEach((project, index) => {
+            const myProject = document.createElement("div");
+            myProject.classList.add('project');
+            myProject.innerHTML = `<h3>${project.name}</h3>`;
+            myProject.innerHTML += `<img src="${project.image}" alt="${project.name}" onclick="getProject(${index})">`;
+            myProject.innerHTML += `<span>${Words[0].More}</span>`;
+
+                const myFooter = document.createElement("div");
+                myFooter.classList.add('foot');
+                if(project.demo) myFooter.innerHTML += `<a href="${project.demo}" target="_blank" rel="noopener">${Words[0].Demo} <i class='bx bx-link-external max-size'></i></a>`;
+                if(project.github) myFooter.innerHTML += `<a href="${project.github}" target="_blank" rel="noopener">${Words[0].Project} <i class='bx bxl-github max-size'></i></a>`;
+                myProject.appendChild(myFooter);
+
+            this.Projects.appendChild(myProject);
+        });
     }
 }
 
@@ -69,7 +95,7 @@ class Dialogs {
     Send() {
         const currentDial = this.Format(Dials[this.current]);
         const interval = this.GetInterval();
-        console.log(`Dialog : ${this.current} / Interval : ${interval}`);
+        //console.log(`Dialog : ${this.current} / Interval : ${interval} / Next : ${next}`);
         new Bubble(this.current,interval).Add(currentDial);
     }
 
