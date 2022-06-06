@@ -80,27 +80,8 @@
             "Write": "Tony est entrain de vous écrire.",
             "More": "^ Cliquer sur l'image pour plus d'informations.",
             "Demo": "Voir la démo",
-            "Project": "Voir le projet"
-        }
-    ],
-    "Word" : [
-        {
-            "0": [
-                "Send",
-                "Envoyer"
-            ],
-            "1": [
-                "Sent",
-                "Message envoyé."
-            ],
-            "2": [
-                "Error",
-                "Erreur !"
-            ],
-            "3": [
-                "Write",
-                "Tony est entrain de vous écrire."
-            ]
+            "Project": "Voir le projet",
+            "Techs": "Technologies utilisées"
         }
     ]
 }

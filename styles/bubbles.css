@@ -10,6 +10,17 @@
     margin-top: auto !important;
 }
 
+.wrap section .bubbles .bubble > :first-child {
+    width: 100%;
+}
+
+.wrap section .bubbles .bubble > :first-child img {
+    width: 100%;
+    padding-block-start: 10px;
+    object-fit: contain;
+}
+
+
 .wrap section .bubbles .bubble {
     display: flex;
     margin: 5px;
@@ -37,6 +48,21 @@
     width: 80%;
     min-height: 80px;
     align-items: center;
+}
+
+.wrap section .bubbles .bubble ul.techs {
+    justify-content: space-evenly;
+    min-height: 30px;
+    width: 95%;
+}
+
+.wrap section .bubbles .bubble ul.techs > li {
+    background-color: var(--light-text-color);
+    color: var(--light-bg-color);
+    margin: 5px;
+    padding: 5px;
+    width: 75px;
+    border-radius: 0.3em;
 }
 
 .bubble span {

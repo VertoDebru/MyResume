@@ -25,6 +25,10 @@ const Words = [];
 const Others = [];
 // Navigation
 let cPage = 0;                                  // Current page.
+// Dialogs
+let isDial = true;
+// Projects
+const awaitID = [];                             // Project ID await
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
 msgBip.crossOrigin = "anonymous";
@@ -93,17 +97,20 @@ class Dialogs {
 
     // Send current dialog in bubbles.
     Send() {
-        const currentDial = this.Format(Dials[this.current]);
         const interval = this.GetInterval();
-        //console.log(`Dialog : ${this.current} / Interval : ${interval} / Next : ${next}`);
-        new Bubble(this.current,interval).Add(currentDial);
+        if(Dials[this.current]) new Bubble(this.current,interval).Add();
+    }
+
+    // Send project dialog in bubbles.
+    SendProject() {
+        new Bubble(this.current,1).AddProject();
     }
 
     // Remove all {Tags} in text and return it.
     Format(text) {
         if(text == null || text == "undefined")
             return console.warn("Dialogs Format -> Error no text received !");
-        
+
         let formated = text.replace(reg, "");
         return formated;
     }
@@ -151,33 +158,35 @@ class Bubble {
         this.interval = interval;
     }
 
-    // Add bubble in chatting box whit text/not.
-    Add(text) {
-        const writeBubble = document.getElementById('Write');
+    // Add bubble in chatting box with dialog.
+    Add() {
+        if(this.dial == 0) this.AddWrite();
+        
         const myBubble = document.createElement("div");
         myBubble.classList.add('bubble');
-        myBubble.innerHTML = `<div>${text}</div>`;
+        // If dialogs is not complete.
+        if(this.dial != Dials.length) {
+            myBubble.innerHTML = `<div>${new Dialogs(this.dial).Format(Dials[this.dial])}</div>`;
+            // Adding new message if user is not on chatting box.
+            cPage != 0 ? (
+                document.getElementsByClassName('mark')[0].setAttribute('style', 'display: block'),
+                msgBip.play()
+            ) : null;
+        }
 
         let send = setInterval(() => {
-            if(writeBubble) writeBubble.remove();
-            this.Bubbles.appendChild(myBubble);
+            // If dialogs is not complete.
+            if(this.dial != Dials.length) {
+                this.Bubbles.appendChild(myBubble);
 
-            this.dial = this.dial+1;
-            if(this.dial !== Dials.length) {
-                let newWrite = document.createElement("div");
-                newWrite.classList.add('bubble');
-                newWrite.innerHTML = this.layoutWrite;
-                newWrite.id = 'Write';
-                this.Bubbles.appendChild(newWrite);
-                // Adding new message if user is not on chatting box.
-                if(cPage != 0)
-                {
-                    document.getElementsByClassName('mark')[0].setAttribute('style', 'display: block');
-                    msgBip.play();
+                if((this.dial+1) < Dials.length) new Dialogs((this.dial+1)).Send();
+                    
+                if(this.dial < Dials.length-1) this.AddWrite();
+                else {
+                    isDial = false;
+                    awaitID.length ? ( new Dialogs(this.dial).SendProject(), this.AddWrite() ) : this.RemoveWrite();
                 }
-                new Dialogs(this.dial).Send();
             }
-
             this.Bubbles.scrollTo({
                 top:  this.Bubbles.scrollHeight,
                 left: 0,
@@ -185,6 +194,74 @@ class Bubble {
             });
             clearInterval(send);
         }, this.interval*1000);
+    }
+
+    // Add bubble in chatting box with Project.
+    AddProject() {
+        const myBubble = document.createElement("div");
+        myBubble.classList.add('bubble');
+        // If projects await.
+        if(awaitID.length) {
+            const id = awaitID[0];
+            this.Project = document.createElement("div");
+            this.Project.innerHTML = `<h3>${Projects[id].name}</h3>`;
+            this.Project.innerHTML += `<p>${Projects[id].description}</p>`;
+            this.Project.innerHTML += `<img src="${Projects[id].image}" alt="${Projects[id].name}">`;
+
+            this.Project.innerHTML += `<h3>${Words[0].Techs}</h3>`;
+            const techno = document.createElement("ul");
+            techno.classList.add('techs');
+            Projects[id].techs.forEach(tech => {
+                techno.innerHTML += `<li>${tech}</li>`;
+            })
+            this.Project.appendChild(techno);
+
+            myBubble.appendChild(this.Project);
+            this.AddWrite();
+
+            // Adding new message if user is not on chatting box.
+            cPage != 0 ? (
+                document.getElementsByClassName('mark')[0].setAttribute('style', 'display: block'),
+                msgBip.play()
+            ) : null;
+        }
+        
+        let send = setInterval(() => {
+            // If projects await.
+            if(awaitID.length) {
+                this.Bubbles.appendChild(myBubble);
+                awaitID.splice(0, 1);
+
+                awaitID.length ? new Dialogs(this.dial).SendProject() : this.RemoveWrite();
+            }
+            clearInterval(send);
+        }, this.interval*1000);
+    }
+
+    AddWrite() {
+        this.RemoveWrite();
+        let newWrite = document.createElement("div");
+        newWrite.classList.add('bubble');
+        newWrite.innerHTML = this.layoutWrite;
+        newWrite.id = 'Write';
+        this.Bubbles.appendChild(newWrite);
+        
+        this.Bubbles.scrollTo({
+            top:  this.Bubbles.scrollHeight,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    RemoveWrite() {
+        const writeBubble = document.getElementById('Write');
+        if(writeBubble) writeBubble.remove();
+
+        this.Bubbles.scrollTo({
+            top:  this.Bubbles.scrollHeight,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
 }
 

@@ -1,6 +1,10 @@
 // Send infos project in chat box.
 function getProject(id) {
-    console.log('Project ID : '+id);
+    awaitID.push(id);
+    if(!isDial) {
+        new Bubble(Dials.length,1).AddProject();
+        switchPage(0);
+    }
 }
 
 // Navigation
