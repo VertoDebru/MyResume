@@ -11,6 +11,6 @@
        $headers .= 'From: "'.$name.'"<'.$email.'>'."\n"; // Expediteur
        $send_email = mail($to,$subject,$message,$headers);
 
-       echo ($send_email) ? 'success' : 'error';
+       return ($send_email) ? 'success' : 'error';
     }
 ?>
