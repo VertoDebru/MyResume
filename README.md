@@ -9,5 +9,5 @@
 - [x] Chat Box.
 - [x] Send infos project in chat box.
 - [ ] Send email message. ( In Progress )
-- [ ] Download Resume. ( Not Work )
+- [x] Download Resume.
 - [ ] Switch Language. ( Not Work )
