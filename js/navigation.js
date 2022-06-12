@@ -10,6 +10,8 @@ function getProject(id) {
 // Navigation
 function switchPage(Id)
 {
+    if(Id == 3) return window.open("./assets/moncv.pdf");
+
     const navList = document.getElementsByTagName("nav")[0].getElementsByTagName("li");
     for (let i = 0; i < navList.length; i++) {
         navList[i].classList.remove("active");
