@@ -6,6 +6,7 @@
 ![javascript](https://img.shields.io/badge/Javascript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
 ## Features
+- [x] Switch Theme (dark/light).
 - [x] Chat Box.
 - [x] Send infos project in chat box.
 - [x] Send email message.
