@@ -73,6 +73,13 @@ header {
     padding-inline-end: 25px;
 }
 
+header div {
+    display: flex;
+    min-width: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
 nav {
     display: flex;
     justify-content: center;

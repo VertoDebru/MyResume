@@ -32,6 +32,8 @@ const awaitID = [];                             // Project ID await
 // Medias
 const msgBip = new Audio('./assets/medias/notification.mp3');
 msgBip.crossOrigin = "anonymous";
+// Localstorage Languages
+const Language = ["FR", "EN"];
 
 // === CLASS TO LOAD DATAS.
 class Initialize {
@@ -40,7 +42,14 @@ class Initialize {
     }
 
     Start() {
-        const reqFile = new Request('./assets/datas/FR.json');
+        let language = localStorage.getItem("language");
+        console.log(language);
+        if(!language) language = localStorage.setItem("language",Language[0]);
+        // Set Language.
+        if(language == 'FR') document.getElementById("switch-language").innerText = Language[1];
+        else document.getElementById("switch-language").innerText = Language[0];
+
+        const reqFile = new Request('./assets/datas/'+language+'.json');
         // Get JSON datas
         fetch(reqFile).then(response => response.json())
         .then(data => {
@@ -60,6 +69,12 @@ class Initialize {
             let others = data.O;
             others.forEach(other => Others.push(other.other));
             
+            // Set Language.
+            document.getElementById("ChatBox").innerText = Words[0].Chat;
+            document.getElementById("Projects").innerText = Words[0].Projects;
+            document.getElementById("Contact").innerText = Words[0].Contact;
+            document.getElementById("MyResume").innerText = Words[0].Resume;
+
             // Setting up projects.
             this.Set();
 

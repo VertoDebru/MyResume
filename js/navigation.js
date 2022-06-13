@@ -30,6 +30,14 @@ function switchPage(Id)
     });
 }
 
+// Switch Language.
+function switchLang() {
+    let language = localStorage.getItem("language");
+    if(language == "FR") localStorage.setItem("language", "EN");
+    if(language == "EN") localStorage.setItem("language", "FR");
+    window.location.reload();
+}
+
 // Switch Theme.
 function switchTheme() {
     const bodyTag = document.getElementsByTagName("body")[0];

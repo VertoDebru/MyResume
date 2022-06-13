@@ -20,7 +20,10 @@
 <body>
     <header>
         <h1><a href="./">Tony Vervoot</a></h1>
-        <a id="switch-theme" class="link max-size" onclick="switchTheme()"><i class="bx bx-sun"></i></a>
+        <div>
+            <a id="switch-language" class="link" onclick="switchLang()">EN</a>
+            <a id="switch-theme" class="link max-size" onclick="switchTheme()"><i class="bx bx-sun"></i></a>
+        </div>
     </header>
 
     <main>
@@ -72,22 +75,22 @@
             <li onclick="switchPage(0)" class="active">
                 <div class="mark"></div>
                 <i class="bx bx-message-alt max-size"></i>
-                <span>Messagerie</span>
+                <span id="ChatBox"></span>
             </li>
             
             <li onclick="switchPage(1)">
                 <i class="bx bx-collection max-size"></i>
-                <span>Projets</span>
+                <span id="Projects"></span>
             </li>
             
             <li onclick="switchPage(2)">
                 <i class="bx bx-envelope max-size"></i>
-                <span>Contact</span>
+                <span id="Contact"></span>
             </li>
 
             <li onclick="switchPage(3)">
                 <i class="bx bxs-download max-size"></i>
-                <span>Mon C.V</span>
+                <span id="MyResume"></span>
             </li>
         </ul>
     </nav>
