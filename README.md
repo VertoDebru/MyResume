@@ -8,6 +8,6 @@
 ## Features
 - [x] Chat Box.
 - [x] Send infos project in chat box.
-- [ ] Send email message. ( In Progress )
+- [x] Send email message.
 - [x] Download Resume.
 - [ ] Switch Language. ( Not Work )
