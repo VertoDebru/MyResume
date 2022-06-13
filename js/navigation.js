@@ -52,62 +52,71 @@ function postForm()
     let name = document.getElementById("Name").value;
     let email = document.getElementById("Email").value;
     let message = document.getElementById("Message").value;
+    
+    // Check forms
+    if(name.length <= 2  || message.length <= 20 || !checkEmail()) {
+        if(document.getElementById("ErrorForm")) document.getElementById("ErrorForm").remove();
+        // Create Div content message sended
+        const validDiv = document.createElement("div");
+        validDiv.id = "ErrorForm";
+        validDiv.innerHTML = "<h3>Remplissez tous les champs du formulaire.</h3>";
+        Content.insertBefore(validDiv, Content.firstChild);
+        setInterval(() => {
+            validDiv.remove();
+        }, 9000);
+        return;
+    }
 
-    const reqFile = new Request('https://vervoot.alwaysdata.net/scripts/post.php');
-    const data = { name: name, email: email, message: message };
+    const reqFile = new Request('https://vervoot.alwaysdata.net/js/post.php');
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
     const options = {
         mode: 'no-cors',
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept': 'application/json','Referer': 'https://vervoot.alwaysdata.net/', 'Access-Control-Allow-Origin': 'http://127.0.0.1:5500/'},
-        body: JSON.stringify(data)
+        body: formData
     };
 
-    fetch(reqFile, options).then(response => response.json())
+    fetch(reqFile, options)
     .then((res) => {
-        console.log(res);
+        if(document.getElementById("ErrorForm")) document.getElementById("ErrorForm").remove();
+
         // Create Div content message sended
         const validDiv = document.createElement("div");
         if(res.ok) {
-            this.setState({ success: true });
             validDiv.id = "ValidForm";
-            validDiv.innerHTML = "<h2>Success !</h2>";
+            validDiv.innerHTML = "<h3>Message envoyé avec succès.</h3>";
             Content.insertBefore(validDiv, Content.firstChild);
         }
         else {
-            this.setState({ success: false });
             validDiv.id = "ErrorForm";
-            validDiv.innerHTML = `<h2>Error !</h2>`;
+            validDiv.innerHTML = `<h3>Erreur lors de l'envoi du message !</h3>`;
             Content.insertBefore(validDiv, Content.firstChild);
         }
+        setInterval(() => { validDiv.remove(); }, 9000);
     })
     .catch((err) => {
         console.log(err);
-        this.setState({ success: false });
         validDiv.id = "ErrorForm";
-        validDiv.innerHTML = `<h2>Error !</h2><p>${err}</p>`;
+        validDiv.innerHTML = `<h2>Erreur interne !</h2><p>${err}</p>`;
         Content.insertBefore(validDiv, Content.firstChild);
     });
+}
 
-    /*
-    $.ajax({
-        type : "POST",
-        url  : "./js/post.php",
-        data : data,
-        success: function(res)
-        {
-            // Create Div content message sended
-            const validDiv = document.createElement("div");
-            if (res == 'success'){
-                validDiv.id = "ValidForm";
-                validDiv.innerHTML = "<h2>Success !</h2>";
-                Content.insertBefore(validDiv, Content.firstChild);
-            } else {
-                if(document.getElementById("ErrorForm")) document.getElementById("ErrorForm").remove();
-                validDiv.id = "ErrorForm";
-                validDiv.innerHTML = "<h2>Error !</h2>";
-                Content.insertBefore(validDiv, Content.firstChild);
-            }
-        }
-    });
-    */
+function checkEmail() {
+    let email = document.getElementById("Email");
+    let regEmail = new RegExp(/^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z]{2,})/g);
+    if(!email.value.match(regEmail)) {
+      // Change style
+      email.classList.add("error");
+      email.focus();
+      return false;
+    }
+    else {
+        // Change style
+        email.classList.remove("error");
+        return true;
+    }
 }

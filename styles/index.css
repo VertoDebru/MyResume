@@ -137,6 +137,35 @@ nav ul > li .mark {
     }
 }
 
+#ValidForm, #ErrorForm {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 0.5em;
+    opacity: 1;
+
+    animation: fade 5s infinite 5s;
+}
+
+#ValidForm {
+    background-color: yellowgreen;
+    color: black;
+}
+
+#ErrorForm, input[type="email"].error {
+    background-color: lightcoral;
+    color: black;
+}
+
+#ValidForm h3, #ErrorForm h3 {
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 /* LIGHT THEME */
 body.light {
