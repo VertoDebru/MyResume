@@ -43,8 +43,6 @@ class Initialize {
 
     Start() {
         let language = new Languages().Get();
-        console.log(language);
-
         const reqFile = new Request('./assets/datas/'+language+'.json');
         // Get JSON datas
         fetch(reqFile).then(response => response.json())
