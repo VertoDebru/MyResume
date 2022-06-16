@@ -59,6 +59,20 @@ class Initialize {
             let words = data.Words;
             words.forEach(word => Words.push(word));
             
+            // Set default theme in localStorage.
+            let theme = localStorage.getItem("theme");
+            if(theme === null) localStorage.setItem("theme", "dark");
+            const bodyTag = document.getElementsByTagName("body")[0];
+            const linkTag = document.getElementById("switch-theme");
+            if(theme == "light") {
+                bodyTag.classList.add('light');
+                linkTag.getElementsByTagName("i")[0].classList.replace("bx-sun", "bx-moon");
+            }
+            else {
+                bodyTag.classList.remove('light');
+                linkTag.getElementsByTagName("i")[0].classList.replace("bx-moon", "bx-sun");
+            }
+
             // Set Language.
             new Languages().Set();
 

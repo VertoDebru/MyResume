@@ -40,16 +40,19 @@ function switchLang() {
 
 // Switch Theme.
 function switchTheme() {
+    let theme = localStorage.getItem("theme");
+    if(theme == "dark") localStorage.setItem("theme", "light");
+    if(theme == "light") localStorage.setItem("theme", "dark");
+
     const bodyTag = document.getElementsByTagName("body")[0];
     const linkTag = document.getElementById("switch-theme");
-
-    if(bodyTag.classList.length) {
-        linkTag.getElementsByTagName("i")[0].classList.replace("bx-moon", "bx-sun");
+    if(theme == "light") {
         bodyTag.classList.remove('light');
+        linkTag.getElementsByTagName("i")[0].classList.replace("bx-moon", "bx-sun");
     }
     else {
-        linkTag.getElementsByTagName("i")[0].classList.replace("bx-sun", "bx-moon");
         bodyTag.classList.add('light');
+        linkTag.getElementsByTagName("i")[0].classList.replace("bx-sun", "bx-moon");
     }
 }
 
