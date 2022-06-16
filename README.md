@@ -11,4 +11,4 @@
 - [x] Send infos project in chat box.
 - [x] Send email message.
 - [x] Download Resume.
-- [ ] Switch Language. ( In Progress )
+- [x] Switch Language.

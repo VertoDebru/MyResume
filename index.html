@@ -14,7 +14,9 @@
 
     <link rel="stylesheet" href="styles/index.css">
 
+    <!-- ======= START SCRIPTS ======= -->
     <script src="js/navigation.js"></script>
+    <script defer src="js/scripts.js"></script>
     <title>Tony Vervoot</title>
 </head>
 <body>
@@ -41,30 +43,30 @@
             </div>
             <!-- ===== SECTION BUBBLES ===== -->
             <section>
-                <h2>Bienvenue</h2>
+                <h2></h2>
                 <div class="avatar"></div>
                 <div class="bubbles"></div>
             </section>
             <!-- ===== SECTION PROJECT ===== -->
             <section>
-                <h2>Mes Projets</h2>
+                <h2></h2>
                 <div class="projects"></div>
             </section>
             <!-- ===== SECTION CONTACT ===== -->
             <section>
-                <h2>Me Contacter</h2>
-                <p>Vous pouvez m'envoyer un message en remplissant le formulaire ci-dessous.</p>
+                <h2></h2>
+                <p></p>
                 <form action="postForm()">
-                    <label for="Name">Nom</label>
+                    <label for="Name"></label>
                     <input id='Name' name='name' type='text' required />
 
-                    <label for="Email">Adresse Email</label>
+                    <label for="Email"></label>
                     <input id='Email' name='email' type='email' required />
 
-                    <label for="Message">Votre Message</label>
+                    <label for="Message"></label>
                     <textarea id="Message" name="message" rows="5" required></textarea>
 
-                    <input type="button" value="Envoyer mon message." onclick="postForm()">
+                    <input type="button" value="" onclick="postForm()">
                 </form>
             </section>
         </div>
@@ -95,7 +97,5 @@
         </ul>
     </nav>
 
-    <!-- ======= START SCRIPTS ======= -->
-    <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -42,12 +42,8 @@ class Initialize {
     }
 
     Start() {
-        let language = localStorage.getItem("language");
+        let language = new Languages().Get();
         console.log(language);
-        if(!language) language = localStorage.setItem("language",Language[0]);
-        // Set Language.
-        if(language == 'FR') document.getElementById("switch-language").innerText = Language[1];
-        else document.getElementById("switch-language").innerText = Language[0];
 
         const reqFile = new Request('./assets/datas/'+language+'.json');
         // Get JSON datas
@@ -64,19 +60,12 @@ class Initialize {
             // Set words in array.
             let words = data.Words;
             words.forEach(word => Words.push(word));
-
-            // Set text others in array.
-            let others = data.O;
-            others.forEach(other => Others.push(other.other));
             
             // Set Language.
-            document.getElementById("ChatBox").innerText = Words[0].Chat;
-            document.getElementById("Projects").innerText = Words[0].Projects;
-            document.getElementById("Contact").innerText = Words[0].Contact;
-            document.getElementById("MyResume").innerText = Words[0].Resume;
+            new Languages().Set();
 
             // Setting up projects.
-            this.Set();
+            this.setProjects();
 
             // Start chat.
             new Dialogs(0).Send();
@@ -85,7 +74,7 @@ class Initialize {
     }
 
     // Setting up projects.
-    Set() {
+    setProjects() {
         Projects.forEach((project, index) => {
             const myProject = document.createElement("div");
             myProject.classList.add('project');
@@ -101,6 +90,51 @@ class Initialize {
 
             this.Projects.appendChild(myProject);
         });
+    }
+}
+
+// === CLASS TO HANDLE LANGUAGES.
+class Languages {
+    constructor() {
+        this.Languages = localStorage.getItem("language");
+    }
+
+    // Return language.
+    Get() {
+        if(!this.Languages) {
+            localStorage.setItem("language",Language[0]);
+            this.Languages = localStorage.getItem("language");
+        }
+        
+        return this.Languages;
+    }
+
+    // Setting up words in selected language.
+    Set() {
+        if(!this.Languages) this.Languages = this.Get();
+        document.getElementsByTagName("html")[0].setAttribute('lang', this.Languages.toLowerCase())
+        // Set link Language.
+        if(this.Languages == 'FR') document.getElementById("switch-language").innerText = Language[1];
+        else document.getElementById("switch-language").innerText = Language[0];
+
+        // Set words in nav bar.
+        document.getElementById("ChatBox").innerText = Words[0].Chat;
+        document.getElementById("Projects").innerText = Words[0].Projects;
+        document.getElementById("Contact").innerText = Words[0].Contact;
+        document.getElementById("MyResume").innerText = Words[0].Resume;
+
+        const sections = document.getElementsByTagName("section");
+        const title = document.getElementsByTagName("h2");
+        title[0].innerText = Words[0].Welcome;
+        title[1].innerText = Words[0].MyProjects;
+
+        title[2].innerText = Words[0].ContactMe;
+        sections[2].getElementsByTagName("p")[0].innerText = Words[0].ContactDesc;
+        sections[2].getElementsByTagName("label")[0].innerText = Words[0].Name;
+        sections[2].getElementsByTagName("label")[1].innerText = Words[0].Email;
+        sections[2].getElementsByTagName("label")[2].innerText = Words[0].Message;
+        
+        sections[2].getElementsByTagName("input")[2].setAttribute('value', Words[0].Send);
     }
 }
 

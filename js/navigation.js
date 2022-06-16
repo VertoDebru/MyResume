@@ -67,7 +67,7 @@ function postForm()
         // Create Div content message sended
         const validDiv = document.createElement("div");
         validDiv.id = "ErrorForm";
-        validDiv.innerHTML = "<h3>Remplissez tous les champs du formulaire.</h3>";
+        validDiv.innerHTML = `<h3>${Words[0].ErrorForm}</h3>`;
         Content.insertBefore(validDiv, Content.firstChild);
         setInterval(() => {
             validDiv.remove();
@@ -95,12 +95,12 @@ function postForm()
         const validDiv = document.createElement("div");
         if(res.ok) {
             validDiv.id = "ValidForm";
-            validDiv.innerHTML = "<h3>Message envoyé avec succès.</h3>";
+            validDiv.innerHTML = `<h3>${Words[0].Sent}</h3>`;
             Content.insertBefore(validDiv, Content.firstChild);
         }
         else {
             validDiv.id = "ErrorForm";
-            validDiv.innerHTML = `<h3>Erreur lors de l'envoi du message !</h3>`;
+            validDiv.innerHTML = `<h3>${Words[0].ErrorSend}</h3>`;
             Content.insertBefore(validDiv, Content.firstChild);
         }
         setInterval(() => { validDiv.remove(); }, 9000);
@@ -108,7 +108,7 @@ function postForm()
     .catch((err) => {
         console.log(err);
         validDiv.id = "ErrorForm";
-        validDiv.innerHTML = `<h2>Erreur interne !</h2><p>${err}</p>`;
+        validDiv.innerHTML = `<h3>${Words[0].Error}</h3><p>${err}</p>`;
         Content.insertBefore(validDiv, Content.firstChild);
     });
 }

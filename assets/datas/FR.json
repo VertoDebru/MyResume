@@ -67,16 +67,9 @@
             "github": "https://github.com/VertoDebru/OhMyFood"
         }
     ],
-    "O" : [
-        {
-            "other": "{W2}<h1>Contact</h1>Vous pouvez m'envoyer un message en remplissant le formulaire ci-dessous.{CONTACT}Ou simplement me retrouver sur les réseaux sociaux.{SOCIAL}"
-        }
-    ],
     "Words" : [
         {
-            "Send": "Envoyer",
-            "Sent": "Message envoyé.",
-            "Error": "Erreur !",
+            "Welcome": "Bienvenue",
             "Write": "Tony est entrain de vous écrire.",
             "More": "^ Cliquer sur l'image pour plus d'informations.",
             "Demo": "Voir la démo",
@@ -85,7 +78,18 @@
             "Chat": "Messagerie",
             "Projects": "Projets",
             "Contact": "Contact",
-            "Resume": "Mon C.V"
+            "Resume": "Mon C.V",
+            "MyProjects": "Mes Projets",
+            "ContactMe": "Me Contacter",
+            "ContactDesc": "Vous pouvez m'envoyer un message en remplissant le formulaire ci-dessous.",
+            "Name": "Nom",
+            "Email": "Adresse Email",
+            "Message": "Votre Message",
+            "Send": "Envoyer mon message.",
+            "Sent": "Message envoyé avec succès.",
+            "ErrorForm": "Remplissez tous les champs du formulaire.",
+            "ErrorSend": "Erreur lors de l'envoi du message !",
+            "Error": "Erreur interne !"
         }
     ]
 }

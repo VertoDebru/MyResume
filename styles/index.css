@@ -49,7 +49,9 @@ h1 {
 
 h2 {
     text-align: center;
-    text-decoration: underline;
+    background-color: var(--dark-primary-color);
+    padding: 5px;
+    margin: 5px;
 }
 
 h1, h2, h3 {
@@ -194,4 +196,9 @@ body.light nav ul > li {
 body.light nav ul > li.active {
     border-bottom: 2px solid;
     color: var(--light-text-color);
+}
+
+body.light h2 {
+    background-color: var(--light-primary-color);
+    color: var(--dark-text-color);
 }
