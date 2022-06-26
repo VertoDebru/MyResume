@@ -27,9 +27,17 @@
     ],
     "P" : [
         {
+            "name": "Memento Tony",
+            "description": "API Memos pour Développeur Web.",
+            "techs": ["REACT","NODEJS","EXPRESS","JS","MONGODB"],
+            "image": "./assets/images/memento-preview.jpg",
+            "demo": "https://vervoot.alwaysdata.net/Memento",
+            "github": null
+        },
+        {
             "name": "Groupomania",
             "description": "Créez un réseau social d’entreprise.",
-            "techs": ["REACT","NODEJS","EXPRESS","JS"],
+            "techs": ["REACT","NODEJS","EXPRESS","JS","MYSQL"],
             "image": "./assets/images/groupomania-preview.jpg",
             "demo": null,
             "github": "https://github.com/VertoDebru/P7_Groupomania"
@@ -37,7 +45,7 @@
         {
             "name": "Piiquante",
             "description": "Construisez une API sécurisée pour une application d'avis gastronomiques.",
-            "techs": ["NODEJS","EXPRESS","JWT","JS"],
+            "techs": ["NODEJS","EXPRESS","JWT","JS","MONGODB"],
             "image": "./assets/images/piiquante-preview.jpg",
             "demo": null,
             "github": "https://github.com/VertoDebru/Piiquante/tree/Dev"
