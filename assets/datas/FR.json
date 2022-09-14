@@ -27,6 +27,14 @@
     ],
     "P" : [
         {
+            "name": "Astro",
+            "description": "API Astro.",
+            "techs": ["REACT","NODEJS","EXPRESS","JS","MONGODB"],
+            "image": "./assets/images/astro-preview.jpg",
+            "demo": "https://vervoot.alwaysdata.net/Astro",
+            "github": null
+        },
+        {
             "name": "Memento Tony",
             "description": "API Memos pour Développeur Web.",
             "techs": ["REACT","NODEJS","EXPRESS","JS","MONGODB"],
